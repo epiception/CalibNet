@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+	<!-- <meta name=viewport content=“width=800”> -->
+	<head>
+		<title>Ganesh Iyer</title>
+		<!-- link to main stylesheet -->
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900&subset=latin-ext" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/css/main_1.css">
+	</head>
+	<body>
+
+		<h1>CalibNet: Self-Supervised Extrinsic Calibration using 3D Spatial Transformer Networks</h5>
+
+		<nav>
+    		<ul>
+        		<li><a href="https://epiception.github.io/">Ganesh Iyer<sup>1</sup></a></li>
+        		<li><a href="http://karnikram.info/">Karnik Ram<sup>1</sup></a></li>
+        		<li><a href="http://krrish94.github.io/">Krishna Murthy<sup>2</sup></a></li>
+				<li><a href="https://www.iiit.ac.in/people/faculty/mkrishna/">K. Madhava Krishna<sup>1</sup></a></li>
+				<li><p2>1. Robotics Research Center, International Institute of Information and Technology</p2></li>
+				<li><p2>2. Montreal Institute of Learning Algorithms, Universit‌&#233; de Montr‌&#233;al</p2></li>
+    		</ul>
+		</nav>
+
+		<div>
+			<img src="/assets/teaser.png" alt="Paper Teaser" class = "center">
+		</div>
+
+				<p>3D LiDARs and 2D cameras are increasingly being
+		used alongside each other in sensor rigs for perception tasks.
+		Before these sensors can be used to gather meaningful data,
+		however, their extrinsics (and intrinsics) need to be accurately
+		calibrated, as the performance of the sensor rig is extremely
+		sensitive to these calibration parameters. A vast majority of
+		existing calibration techniques require significant amounts of
+		data and/or calibration targets and human effort, severely
+		impacting their applicability in large-scale production systems.
+		We address this gap with CalibNet: a self-supervised deep
+		network capable of automatically estimating the 6-DoF rigid
+		body transformation between a 3D LiDAR and a 2D camera in
+		real-time. CalibNet alleviates the need for calibration targets,
+		thereby resulting in significant savings in calibration efforts.
+		During training, the network only takes as input a LiDAR point
+		cloud, the corresponding monocular image, and the camera
+		calibration matrix K. At train time, we do not impose direct
+		supervision (i.e., we do not directly regress to the calibration
+		parameters, for example). Instead, we train the network to
+		predict calibration parameters that maximize the geometric and
+		photometric consistency of the input images and point clouds.
+		CalibNet learns to iteratively solve the underlying geometric
+		problem and accurately predicts extrinsic calibration parameters for a wide range of mis-calibrations, without requiring
+		retraining or domain adaptation.</p>
+
+		<hr>
+			<h3> Video </h3>
+		</hr>
+
+		<div>
+	 		<video class="center" src="assets/video.mp4" controls width="1200" height="450">⁪</video>
+		</div>
+
+		<hr>
+			<a href="https://github.com/epiception/CalibNet">
+			<h3> Code </h3></a>
+			<h4>Coming Soon!</h4>
+		</hr>
+
+		<hr>
+			<h3> Paper </h3>
+			<a class="paper" href="/">
+ 				<img class="center_thumbnail" src="assets/pdf_thumbnail.png" alt="Paper Thumbnail" width="1" height="2" border-style = "dotted" border = 1px>
+			</a>
+			<h4>Coming Soon!</h4>
+		</hr>
+
+
+
+	</body>
+</html>

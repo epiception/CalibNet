@@ -1,0 +1,56 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+/*body {
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  background: #322f30;
+  -webkit-font-smoothing: antialiased;
+  margin: 20px auto; width: 70%;
+}*/
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  background: #322f30;
+  -webkit-font-smoothing: antialiased;
+  margin: 10px auto; width: 70%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+a:link, a:visited{
+  color: #7fdbff;
+  /*text-decoration: underline;*/
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*p, ul { font-size: 1.5em; line-height: 1.4em; color: #fff; }*/
+p { font-size: 1.25em; line-height: 1.2em; color: #fff; font-weight: 200; text-align: justify;}
+ul { font-size: 1.5em; line-height: 1.4em; color: #fff;}
+
+h1, h2, h3, h4 { font-family: 'Lato', 'Sans-Serif';
+                font-weight:300; }
+h1 { font-size: 3em;  }
+h2 { font-size: 2.7em; }
+h3 { font-size: 2.3em; }
+h4 { font-size: 1.9em; }
+
+h5{ font-family: 'Lato', 'Sans-Serif';font-weight:300; font-size: 3em; text-align: center; margin-top: 0.8em; margin-bottom: 0.8em;}
+
+
+/*nav ul{ font-size: 1.5em; font-family: 'Lato', 'Arial', 'Sans-Serif'; padding: 20px; list-style: none; text-align: center;}*/
+nav ul{ font-size: 1.5em; font-family: 'Lato', 'Arial', 'Sans-Serif'; padding: 20px;list-style: none; text-align: center; margin-top: 10px;}
+footer ul { font-size: 1.5em; font-family: 'Lato', 'Arial', 'Sans-Serif'; padding: 0px; list-style: none;}
+/*nav ul li{ display: inline; margin-right: 20px; padding: 20px;}*/
+nav ul li{ display: inline; padding: 20px;}
+/*footer div ul li{ display: inline; margin-right: 20px; text-align: left;}*/
+footer div ul li{ display: inline; margin-right: 20px; text-align: left;}
+
+footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
