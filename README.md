@@ -7,8 +7,6 @@ Check out our [project page](https://epiception.github.io/CalibNet/)!
 
 ![CalibNet_gif1](https://media.giphy.com/media/1zjOgLf7j4lHmeMubG/giphy.gif)
 
-![CalibNet_gif2](https://media.giphy.com/media/ZxBoVReja22gRhC1tm/giphy.gif)
-
 ### Prerequisites
 CalibNet is trained on Tensorflow 1.3, CUDA 8.0, CUDNN 7.0.1
 
