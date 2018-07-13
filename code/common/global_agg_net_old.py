@@ -22,14 +22,14 @@ def End_Net_weights_init():
     """
 
     W_ext1 = weight_variable([3,3,768,384], "_8")
-    W_ext2 = weight_variable([3,3,384,192], "_9")
-    W_ext3 = weight_variable([1,2,192,96], "_10")
+    W_ext2 = weight_variable([3,3,384,384], "_9")
+    W_ext3 = weight_variable([1,2,384,384], "_10")
 
-    W_ext4_rot = weight_variable([1,1,96,96], "_11")
-    W_fc_rot = weight_variable_fc([2880,3], "_12")
+    W_ext4_rot = weight_variable([1,1,384,384], "_11")
+    W_fc_rot = weight_variable_fc([3840,3], "_12")
 
-    W_ext4_tr = weight_variable([1,1,96,96], "_13")
-    W_fc_tr = weight_variable_fc([2880,3], "_14")
+    W_ext4_tr = weight_variable([1,1,384,384], "_13")
+    W_fc_tr = weight_variable_fc([3840,3], "_14")
 
     end_weights = [W_ext1, W_ext2, W_ext3, W_ext4_rot, W_fc_rot, W_ext4_tr, W_fc_tr]
 
@@ -49,23 +49,17 @@ def End_Net(input_x, phase_depth, keep_prob):
 
     weights, summaries = End_Net_weights_init()
 
-    print input_x.shape
-    
     layer8 = conv2d_batchnorm_init(input_x, weights[0], name="conv_9", phase= phase_depth, stride=[1,2,2,1])
     layer9 = conv2d_batchnorm_init(layer8, weights[1], name="conv_10", phase= phase_depth, stride=[1,2,2,1])
-    layer10 = conv2d_batchnorm_init(layer9, weights[2], name="conv_11", phase= phase_depth, stride=[1,2,2,1])
-
-    print layer8.shape
-    print layer9.shape
-    print layer10.shape
+    layer10 = conv2d_batchnorm_init(layer9, weights[2], name="conv_11", phase= phase_depth, stride=[1,1,1,1])
 
     layer11_rot = conv2d_batchnorm_init(layer10, weights[3], name="conv_12", phase= phase_depth, stride=[1,1,1,1])
-    layer11_m_rot = tf.reshape(layer11_rot, [batch_size, 2880])
+    layer11_m_rot = tf.reshape(layer11_rot, [batch_size, 3840])
     layer11_drop_rot = tf.nn.dropout(layer11_m_rot, keep_prob)
     layer11_vec_rot = (tf.matmul(layer11_drop_rot, weights[4]))
 
     layer11_tr = conv2d_batchnorm_init(layer10, weights[5], name="conv_13", phase= phase_depth, stride=[1,1,1,1])
-    layer11_m_tr = tf.reshape(layer11_tr, [batch_size, 2880])
+    layer11_m_tr = tf.reshape(layer11_tr, [batch_size, 3840])
     layer11_drop_tr = tf.nn.dropout(layer11_m_tr, keep_prob)
     layer11_vec_tr = (tf.matmul(layer11_drop_tr, weights[6]))
 
