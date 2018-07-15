@@ -98,7 +98,7 @@ saver = tf.train.Saver()
 
 # tensorflow gpu configuration. Not to be confused with network configuration file
 
-config_tf = tf.ConfigProto()
+config_tf = tf.ConfigProto(allow_soft_placement=True)
 config_tf.gpu_options.allow_growth=True
 
 with tf.Session(config = config_tf) as sess:
