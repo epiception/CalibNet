@@ -5,22 +5,22 @@ array=( 0001 0002 0005 0009 0011 0013 0014 0015 0017 0018 0019 0020 0022 0023 00
 
 task()
 {
-    # wget -k -c https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/2011_09_26_drive_$1/2011_09_26_drive_$1_extract.zip
-    # wget -k -c https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/2011_09_26_drive_$1/2011_09_26_drive_$1_sync.zip
-    # echo "Downloading $1"
+    wget -k -c https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/2011_09_26_drive_$1/2011_09_26_drive_$1_extract.zip
+    wget -k -c https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/2011_09_26_drive_$1/2011_09_26_drive_$1_sync.zip
+    echo "Downloading $1"
 
-    # unzip 2011_09_26_drive_$1_extract.zip
-    # unzip 2011_09_26_drive_$1_sync.zip
-    # echo "Extracting $1"
+    unzip 2011_09_26_drive_$1_extract.zip
+    unzip 2011_09_26_drive_$1_sync.zip
+    echo "Extracting $1"
 
-    python -B $SCRIPTPATH/dataset_build_color.py $PWD/2011_09_26/2011_09_26_drive_$1
-    # python -B $SCRIPTPATH/dataset_build_color_2.py $PWD/2011_09_26/2011_09_26_drive_$1
+    python -B $SCRIPTPATH/dataset_build_color.py -path $PWD/2011_09_26/2011_09_26_drive_$1 -randomseed 12345
+    python -B $SCRIPTPATH/dataset_build_color_2.py -path $PWD/2011_09_26/2011_09_26_drive_$1 -randomseed 12345
     echo "Perturbing Depth Maps for ${array[$id]}"
 }
 
 
-N=4
-# N = 2
+# N = 4
+N=2
 (
 for id in {0..44}
 # for id in {0..1}

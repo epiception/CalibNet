@@ -63,13 +63,13 @@ camera_params = dict(
 # beta1: momentum term for Adam Optimizer
 # load_epoch: Load checkpoint no. 0 at the start of training (can be changed to resume training)
 net_params = dict(
-	batch_size = 20,
-	total_frames = 30000,
-	total_frames_train = 24000,
-	total_frames_validation = 6000,
-	partition_limit = 1200,
+	batch_size = 5,
+	total_frames = 100,
+	total_frames_train = 80,
+	total_frames_validation = 20,
+	partition_limit = 20,
 	epochs = 40,
 	learning_rate = 5e-4,
 	beta1 = 0.9,
 	load_epoch = 0
-	)
+)

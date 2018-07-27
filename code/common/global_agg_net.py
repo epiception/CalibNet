@@ -82,12 +82,15 @@ def End_Net_Out(X1, phase_rgb, pooled_input2, phase, keep_prob):
     RGB_Net_obj = model.ResNet(X1, phase_rgb)
     Depth_Net_obj = model_depth.DepthNet(pooled_input2, phase)
 
-    with tf.variable_scope('ResNet'):
-        with tf.device('/device:GPU:0'):
-            output_rgb = RGB_Net_obj.Net()
-    with tf.variable_scope('DepthNet'):
-        with tf.device('/device:GPU:1'):
-            output_depth = Depth_Net_obj.Net()
+
+    output_rgb = RGB_Net_obj.Net()
+    output_depth = Depth_Net_obj.Net()
+    # with tf.variable_scope('ResNet'):
+    #     with tf.device('/device:GPU:0'):
+    #         output_rgb = RGB_Net_obj.Net()
+    # with tf.variable_scope('DepthNet'):
+    #     with tf.device('/device:GPU:1'):
+    #         output_depth = Depth_Net_obj.Net()
 
     layer_next = tf.concat([output_rgb, output_depth], 3)
 
