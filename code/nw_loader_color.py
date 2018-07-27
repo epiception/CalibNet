@@ -20,6 +20,9 @@ dataset = np.loadtxt(config.paths['dataset_path_full'], dtype = str)
 dataset_train = dataset[:total_train]
 dataset_validation = dataset[total_train:total]
 
+img_mean = np.array([0.485, 0.456, 0.406], dtype = np.float32)
+img_std = np.array([0.229, 0.224, 0.225], dtype = np.float32)
+
 def shuffle():
     np.random.shuffle(dataset_train)
     np.random.shuffle(dataset_validation)
@@ -57,12 +60,20 @@ def load(p_no, mode):
 
         source_img = np.float32(smc.imread(img_source_name))
         source_img[0:5,:,:] = 0.0 ; source_img[:,0:5,:] = 0.0 ; source_img[IMG_HT - 5:,:,:] = 0.0 ; source_img[:,IMG_WDT-5:,:] = 0.0 ;
-        source_img = (source_img - 127.5)/127.5
+        # source_img = (source_img - 127.5)/127.5
+        # source_img_container[c_idx, :, :, :] = source_img
+
+        source_img = source_img/255.0
+        source_img = (source_img - img_mean)/img_std
         source_img_container[c_idx, :, :, :] = source_img
 
         target_img = np.float32(smc.imread(img_target_name))
         target_img[0:5,:,:] = 0.0 ; target_img[:,0:5,:] = 0.0 ; target_img[IMG_HT - 5:,:,:] = 0.0 ; target_img[:,IMG_WDT-5:,:] = 0.0 ;
-        target_img = (target_img - 127.5)/127.5
+        # target_img = (target_img - 127.5)/127.5
+        # target_img_container[c_idx, :, :, :] = target_img
+
+        target_img = target_img/255.0
+        target_img = (target_img - img_mean)/img_std
         target_img_container[c_idx, :, :, :] = target_img
 
         transforms_container[c_idx, :, :] = np.linalg.inv(transform.reshape(4,4))
