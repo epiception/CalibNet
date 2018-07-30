@@ -52,6 +52,7 @@ np.random.seed(args.randomseed)
 
 main_path = args.path
 
+print ("Seed for script 2:%d"%args.randomseed)
 if not os.path.exists(main_path + "_sync/depth_maps_2"):
 	os.makedirs(main_path + "_sync/depth_maps_2")
 
@@ -71,7 +72,7 @@ cloud_files = ns(glob.glob(main_path + '_sync/velodyne_points/data/*.bin'))
 print(len(imgs_files), len(cloud_files))
 
 angle_limit = 0.34722965035593395/2.50
-tr_limit = 0.34722965035593395*1.5
+tr_limit = 0.34722965035593395*2.5
 
 angle_list = np.zeros((1,16), dtype = np.float32)
 

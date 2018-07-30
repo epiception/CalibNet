@@ -41,29 +41,28 @@ for fn in folder_names:
 
     dataset_array = np.vstack((dataset_array, dataset))
 
-    # #######################################################################################
+    #######################################################################################
 
-    # file_names_source_2 = ns(glob.glob(fn + "depth_maps_transformed_2/*.png"))
-    # file_names_target_2 = ns(glob.glob(fn + "depth_maps_2/*.png"))
+    file_names_source_2 = ns(glob.glob(fn + "depth_maps_transformed_2/*.png"))
+    file_names_target_2 = ns(glob.glob(fn + "depth_maps_2/*.png"))
 
-    # transforms_list_2 = np.loadtxt(fn + "angle_list_2.txt", dtype = str)
+    transforms_list_2 = np.loadtxt(fn + "angle_list_2.txt", dtype = str)
 
-    # file_names_source_2 = np.array(file_names_source_2, dtype=str).reshape(-1,1)
-    # file_names_target_2 = np.array(file_names_target_2, dtype=str).reshape(-1,1)
+    file_names_source_2 = np.array(file_names_source_2, dtype=str).reshape(-1,1)
+    file_names_target_2 = np.array(file_names_target_2, dtype=str).reshape(-1,1)
 
-    # dataset_2 = np.hstack((file_names_source_2, file_names_target_2, img_source, img_target, transforms_list_2))
-    # print(dataset_2.shape)
+    dataset_2 = np.hstack((file_names_source_2, file_names_target_2, img_source, img_target, transforms_list_2))
+    print(dataset_2.shape)
 
-    # dataset_array_2 = np.vstack((dataset_array_2, dataset_2))
+    dataset_array_2 = np.vstack((dataset_array_2, dataset_2))
 
 
 
 
 dataset_array = dataset_array[1:]
-# dataset_array_2 = dataset_array_2[1:]
+dataset_array_2 = dataset_array_2[1:]
 
-# final_array = np.vstack((dataset_array, dataset_array_2))
-final_array = np.vstack((dataset_array))
+final_array = np.vstack((dataset_array, dataset_array_2))
 
 np.random.shuffle(final_array)
 np.savetxt("parsed_set.txt", final_array, fmt = "%s", delimiter=' ')

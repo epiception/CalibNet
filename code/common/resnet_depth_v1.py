@@ -2,7 +2,7 @@ import numpy as np
 import tensorflow as tf
 import json
 from cnn_utils import *
-import config_res
+import config_res_half as config_res
 
 with open(config_res.paths['resnet_params_path']) as f_in:
     parameters = json.load(f_in)

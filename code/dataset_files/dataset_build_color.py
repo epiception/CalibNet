@@ -68,7 +68,7 @@ main_path = args.path
 # Seed the RNG
 np.random.seed(args.randomseed)
 
-
+print ("Seed for script 1:%d"%args.randomseed)
 # Create directories to store data (if they don't already exist)
 if not os.path.exists(main_path + '_sync/depth_maps'):
 	os.makedirs(main_path + '_sync/depth_maps')

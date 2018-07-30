@@ -2,3 +2,5 @@ cache/*
 *.pyc
 *.o
 slurm-*.out
+/code/logs_simple_transformer
+/code/dataset_files/parsed_set.txt

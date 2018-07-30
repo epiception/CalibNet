@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.misc as smc
 
-import config_res as config
+import config_res_half as config
 
 IMG_HT = config.depth_img_params['IMG_HT']
 IMG_WDT = config.depth_img_params['IMG_WDT']
@@ -120,7 +120,7 @@ def get_pixel_value(img, x, y):
 
     with tf.device('/cpu:0'):
         indices = tf.stack([y, x], 2)
-        indices = tf.reshape(indices, (375*1242, 2))
+        indices = tf.reshape(indices, (IMG_HT*IMG_WDT, 2))
         values = tf.reshape(img, [-1])
 
         Y = indices[:,0]
