@@ -1,5 +1,10 @@
 # CalibNet
 
+### [DEPRECATED] This repository is no longer actively supported. 
+
+While the authors work on an update, please check out this unofficial implementation: [CalibNet_pytorch](https://github.com/gitouni/CalibNet_pytorch) :fire: :slightly_smiling_face:
+___
+
 Code for our paper:
 [CalibNet: Self-Supervised Extrinsic Calibration using 3D Spatial Transformer Networks](https://arxiv.org/pdf/1803.08181.pdf)
 
